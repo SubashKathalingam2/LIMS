@@ -121,6 +121,7 @@ code {
 .lims-wrapper1-item {
   height: 100%;
   width: 100%;
+  padding: 0;
   padding-bottom: 50px;
   overflow: auto;
 }
@@ -165,7 +166,12 @@ code {
   border: 5px solid #ddd;
 }
 .lims-wrapper1-item.item1 {
-  padding: 0 10px;
+  padding: 0 5px;
+}
+.lims-wrapper1-item.item1 .row {
+  margin-right: -2px;
+  padding-left: 0;
+  padding-right: 0;
 }
 .lims-header1 {
   font-size: 18px;
@@ -204,8 +210,10 @@ code {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  flex-wrap: wrap;
   gap: 10px;
   padding: 10px;
+  width: 100%;
 }
 .ftbtn-section .btn-lims {
   flex: 1 1 100px;
@@ -238,7 +246,7 @@ code {
     gap: 10px;
     margin-bottom: 10px;
   }
-  .lims-wrapper{
+  .lims-wrapper {
     padding-bottom: 10px;
   }
   .lims-card1 {
@@ -254,12 +262,12 @@ code {
   }
   .lims-wrapper1-item {
     height: auto;
-    padding: 0 20px;
   }
   .lims-header1 {
     justify-content: center;
   }
   .ftbtn-section {
     justify-content: center;
+    flex-wrap: wrap;
   }
 }

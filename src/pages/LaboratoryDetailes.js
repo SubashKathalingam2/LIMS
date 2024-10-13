@@ -123,7 +123,7 @@ const LaboratoryDetails = () => {
       <div className="lims-wrapper1">
         <h1 className="lims-header1">Laboratory Info</h1>
         <div className="lims-wrapper1-item item1">
-          <div className="row p-0">
+          <div className="row">
             <div className="col-sm-12 col-md-4">
               <label>Laboratory Name</label>
               <input

@@ -1,15 +1,23 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Customizedtable(props) {
   const navigate = useNavigate();
+  const [lastClickTime, setLastClickTime] = useState(0);
 
   useEffect(() => {}, [props]);
+
   const navigate_tocomponent = (id) => {
     navigate(`/laboratories/${id}`);
   };
   const rowclick = (data, Index) => {
-    navigate(`/laboratories/${data.id}`);
+    const currentTime = new Date().getTime();
+    const timeDifference = currentTime - lastClickTime;
+    if (timeDifference < 300 && timeDifference > 0) {
+      navigate(`/laboratories/${data.id}`);
+    } else {
+    }
+    setLastClickTime(currentTime);
   };
   return (
     <table className="lims-list">
@@ -40,7 +48,7 @@ function Customizedtable(props) {
       </thead>
       <tbody>
         {props.Data.map((data, Index) => (
-          <tr key={Index} onDoubleClick={() => rowclick(data, Index)}>
+          <tr key={Index} onClick={() => rowclick(data, Index)}>
             {props.Column.map((col, dindex) =>
               col.cell ? (
                 col.isSub ? (

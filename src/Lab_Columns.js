@@ -44,7 +44,7 @@ export const laboratorycolumns = [
     isSub: true,
     isBlur: true,
     cell: (props) => (
-      <td key={props.key} style={props.style}>
+      <td key={props.Index} style={props.style}>
         <input
           type="text"
           className="form-control"
@@ -153,7 +153,7 @@ export const laboratorycolumns = [
           className="btn-lims"
           onClick={(e) => props.onNavigate(props.rwdata.id)}
         >
-          Edit
+          Edit&nbsp; <i className="bx bxs-pencil"></i>
         </button>
       </td>
     ),

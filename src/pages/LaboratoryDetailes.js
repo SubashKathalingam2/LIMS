@@ -20,7 +20,9 @@ const LaboratoryDetails = () => {
     View_Laboratory();
   }, [id]);
   const View_Laboratory = async () => {
-    if (_state.arrEntlab.length > 0 && id !== "New") {
+    if (_state.arrEntlab.length === 0) {
+      await Close_OnClick();
+    } else if (_state.arrEntlab.length > 0 && id !== "New") {
       let EntData = _state.arrEntlab.find((lab) => lab.id === parseInt(id));
       await dispatch(view_Laboratoryinput(EntData));
     } else {
@@ -53,15 +55,15 @@ const LaboratoryDetails = () => {
           const MaxId =
             EntLab.length === 0 ? 0 : Math.max(...EntLab.map((lab) => lab.id));
           objLab.id = MaxId + 1;
+          EntLab.push(objLab);
         } else {
           EntLab = EntLab.map((dt) => {
-            if (dt.id === Number(id)) {
+            if (dt.id === Number(objLab.id)) {
+              dt = objLab;
             }
             return dt;
           });
         }
-
-        EntLab.push(objLab);
         await dispatch(updateLaboratory({ Data: EntLab }));
         await Clear_OnClick();
       }
@@ -105,7 +107,7 @@ const LaboratoryDetails = () => {
   return (
     <div className="lims-card1">
       <div className="lims-wrapper1">
-        <h1 className="lims-header">Laboratory</h1>
+        <h1 className="lims-header1">Laboratory</h1>
         <div className="lims-wrapper1-item">
           <div className="lims-listbox">
             <ul>
@@ -120,8 +122,8 @@ const LaboratoryDetails = () => {
       </div>
       <div className="lims-wrapper1">
         <h1 className="lims-header1">Laboratory Info</h1>
-        <div className="lims-wrapper1-item">
-          <div className="row p-2">
+        <div className="lims-wrapper1-item item1">
+          <div className="row p-0">
             <div className="col-sm-12 col-md-4">
               <label>Laboratory Name</label>
               <input
@@ -243,16 +245,16 @@ const LaboratoryDetails = () => {
         </div>
         <div className="ftbtn-section">
           <button className="btn-lims" onClick={() => Save_Click()}>
-            Save
+            <i className="bx bxs-save"></i>&nbsp;Save
           </button>
           <button className="btn-lims" onClick={() => Clear_OnClick()}>
-            Clear
+            <i className="bx bx-refresh"></i>&nbsp;Clear
           </button>
           <button className="btn-lims" onClick={() => Delete_click()}>
-            Delete
+            <i className="bx bxs-trash-alt"></i>&nbsp;Delete
           </button>
           <button className="btn-lims" onClick={() => Close_OnClick()}>
-            Close
+            <i className="bx bxs-left-arrow"></i>&nbsp;Close
           </button>
         </div>
       </div>

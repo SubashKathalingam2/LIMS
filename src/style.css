@@ -13,6 +13,9 @@ code {
     monospace;
 }
 
+::-webkit-inner-spin-button {
+  display: none;
+}
 .lims-container {
   box-sizing: border-box;
   width: 100%;
@@ -34,6 +37,7 @@ code {
   margin: 0;
   padding: 0 10px;
   overflow: auto;
+  padding-bottom: 70px;
 }
 .lims-header {
   display: flex;
@@ -60,6 +64,7 @@ code {
   cursor: pointer;
   padding: 0;
   margin: 0;
+  overflow: auto;
 }
 .lims-list thead {
   margin: 0;
@@ -79,31 +84,32 @@ code {
   padding-left: 5px;
   text-align: center;
   font-size: 14px;
+  white-space: nowrap;
 }
 .lims-list tr td {
   height: 40px;
   border-right: 1px solid #ddd;
   padding-left: 5px;
   border-bottom: 1px solid #ddd;
+  white-space: nowrap;
 }
 .lims-list tr th:first-child,
 .lims-list tr td:first-child {
   border-left: 1px solid #ddd;
 }
-
 .lims-list tbody tr:hover {
   background: #f2f2f2f2;
 }
+
 .lims-card1 {
   display: grid;
-  grid-template-columns: 25% 75%;
+  grid-template-columns: 1fr; /* Default to one column on small devices */
   justify-content: flex-start;
   align-items: flex-start;
   padding: 0;
   margin: 0;
   height: 100%;
 }
-
 .lims-card1 .lims-wrapper1 {
   position: relative;
   height: 100%;
@@ -158,9 +164,13 @@ code {
 .lims-wrapper1-item::-webkit-scrollbar-thumb {
   border: 5px solid #ddd;
 }
+.lims-wrapper1-item.item1 {
+  padding: 0 10px;
+}
 .lims-header1 {
-  font-size: 14px;
-  color: darkblue;
+  font-size: 18px;
+  color: black;
+  font-weight: bold;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -168,6 +178,7 @@ code {
   height: 50px;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
   transition: all 0.3s ease-in-out;
+  text-transform: uppercase;
 }
 .lims-header1:hover {
   cursor: pointer;
@@ -188,8 +199,7 @@ code {
   color: #f2f2f2f2;
 }
 .ftbtn-section {
-  position: sticky;
-  bottom: 0;
+  position: relative;
   z-index: 1;
   display: flex;
   justify-content: flex-end;
@@ -202,5 +212,54 @@ code {
   padding: 8px 24px;
   max-width: 100px;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   outline: none;
+}
+
+@media (min-width: 900px) {
+  .lims-card1 {
+    grid-template-columns: 25% 75%; /* Two columns on larger devices */
+  }
+  .ftbtn-section {
+    position: sticky;
+    bottom: 0;
+  }
+}
+@media (max-width: 900px) {
+  .lims-container {
+    height: auto;
+  }
+  .lims-header {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .lims-wrapper{
+    padding-bottom: 10px;
+  }
+  .lims-card1 {
+    height: 100%;
+  }
+  .lims-listbox {
+    height: 50vh;
+    overflow: auto;
+  }
+  .lims-wrapper1 {
+    height: 100%;
+    overflow: none;
+  }
+  .lims-wrapper1-item {
+    height: auto;
+    padding: 0 20px;
+  }
+  .lims-header1 {
+    justify-content: center;
+  }
+  .ftbtn-section {
+    justify-content: center;
+  }
 }

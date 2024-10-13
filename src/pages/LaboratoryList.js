@@ -10,7 +10,7 @@ const LaboratoryList = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   useEffect(() => {
-    Load_Laboratory();
+    if (_state.arrEntlab.length === 0) Load_Laboratory();
   }, []);
 
   const Load_Laboratory = async () => {
@@ -48,7 +48,7 @@ const LaboratoryList = () => {
             navigate(`/laboratories/New`);
           }}
         >
-          Create Laboratory
+          <i className="bx bx-plus"></i>&nbsp;Create Laboratory
         </button>
       </div>
       <div className="lims-wrapper">

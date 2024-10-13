@@ -44,8 +44,7 @@ code {
   justify-content: space-between;
   align-items: center;
   margin: 0;
-  padding: 0 20px;
-  height: 70px;
+  padding: 10px 20px;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
   z-index: 1;
 }
@@ -166,11 +165,11 @@ code {
   border: 5px solid #ddd;
 }
 .lims-wrapper1-item.item1 {
-  padding: 0 5px;
+  padding: 0 15px;
 }
 .lims-wrapper1-item.item1 .row {
   margin-right: -2px;
-  padding-left: 0;
+  padding-left: 5px;
   padding-right: 0;
 }
 .lims-header1 {
@@ -244,7 +243,7 @@ code {
     justify-content: center;
     align-items: center;
     gap: 10px;
-    margin-bottom: 10px;
+    padding: 10px;
   }
   .lims-wrapper {
     padding-bottom: 10px;
